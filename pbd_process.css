@@ -1,1 +1,28 @@
 /* CSS declarations go here */
+/* breakpoint at 600px */
+.mainNav {
+	position: absolute;
+	height: 100%;
+	background-color: #333333;
+	width: 25%;
+	min-width: 150px;
+	max-width: 225px;
+	border-right: #666666 4px solid;
+	color: #FAFAFA;
+}
+
+.mainNav__title {
+	padding:10px 15px; 
+}
+
+.mainContent {
+	padding-left: 25%;
+}
+
+.login--persona {
+	padding: 15px;
+}
+
+.logout {
+	padding: 15px;
+}

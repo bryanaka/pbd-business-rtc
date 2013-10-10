@@ -1,3 +1,6 @@
 {
-  "packages": {}
+  "packages": {
+    "accounts-persona": {},
+    "bootstrap-3": {}
+  }
 }
