@@ -15,7 +15,7 @@ Router.configure({
 Router.map(function() {
   this.route('home', {
 	path: '/',
-	travel_requests: function() { return TravelRequests.find(); },
+	data: TravelRequests.find(),
     template: 'travel',
     renderTemplates: {
       'topNav': {to: 'topNav'}

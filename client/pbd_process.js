@@ -12,6 +12,6 @@ Template.logout.events({
   }
 });
 
-// Template.travel.travel_requests = function() {
-//   return TravelRequests.find();
-// };
+Template.travel.travel_requests = function() {
+   return TravelRequests.find();
+};
