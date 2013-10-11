@@ -1,0 +1,18 @@
+<template name="layout">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	  <title>pbd_process</title>
+	</head>
+	
+	<body>
+		{{> mainNav}}
+	
+		<main class="mainContent">
+			{{yield 'topNav'}}
+			<div class="container">
+				{{yield}}
+			</div>
+		</main>
+	</body>
+</template>
