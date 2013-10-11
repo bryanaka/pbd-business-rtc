@@ -13,3 +13,7 @@ accounts-ui
 
 bootstrap-3
 iron-router
+collection2
+simple-schema
+autoform
+moment

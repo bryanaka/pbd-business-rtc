@@ -2,6 +2,9 @@
   "packages": {
     "accounts-persona": {},
     "bootstrap-3": {},
-    "iron-router": {}
+    "iron-router": {},
+    "collection2": {},
+    "autoform": {},
+    "moment": {}
   }
 }

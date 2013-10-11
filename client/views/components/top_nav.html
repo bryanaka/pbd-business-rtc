@@ -1,7 +1,7 @@
 <template name="topNav">
 	<nav class="navbar" role="navigation">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex8-collapse">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavMenu">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -10,24 +10,9 @@
       <a class="navbar-brand" href="#">Brand</a>
     </div>
 
-    <div class="collapse navbar-collapse navbar-ex8-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-      	{{#if currentUser}}
-      		<li>
-            <a href="#" class="navbar-link">
-    			    Signed in as {{currentUser.profile.email}}</a>
-            </a>
-          </li>
-					<li>{{> logout}}</li>
-				{{else}}
-					<li>{{> login}}</li>
-				{{/if}}
-      </ul>
+    <div class="collapse navbar-collapse" id="topNavMenu">
+      {{yield 'topNav'}}
+      {{> sessions_ui}}
     </div>
   </nav>
 </template>
