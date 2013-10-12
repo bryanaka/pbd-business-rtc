@@ -8,8 +8,9 @@
 				<tr>
 					<th>Name</th>
 					<th>Email</th>
-					<th>Departs On</th>
-					<th>Returns On</th>
+					<th>Depart Date</th>
+					<th>Return Date</th>
+					<th>Status</th>
 					<th>actions</th>
 				</tr>
 			</thead>
@@ -21,9 +22,13 @@
 						<td>{{depart_date}}</td>
 						<td>{{return_date}}</td>
 						<td>
-							<a href="{{urlFor 'show_travel'}}" class="btn btn-primary">View</a>
+							<a href="{{urlFor 'show_travel'}}" class="btn btn-primary">
+								<i class="glyphicon glyphicon-eye-open"></i> View
+							</a>
 							{{#autoForm schema=TravelRequestsCollection doc=this}}
-								<button type="submit" class="btn btn-danger remove">Delete</button>
+								<button type="submit" class="btn btn-danger remove">
+									<i class="glyphicon glyphicon-remove-circle"></i> Delete
+								</button>
 							{{/autoForm}}
 						</td>
 					</tr>

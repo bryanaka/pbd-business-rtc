@@ -66,9 +66,25 @@ TravelRequests = new Meteor.Collection2('travel_requests', {
 			label: "Justification",
 			max: 500
 		},
+		status: {
+			type: String,
+			label: "Request Status",
+			valueIsAllowed: function (val, doc, op) {
+				if (!op) { //insert
+					return doc.password === val;
+				}
+				if (op === "$set") { //update
+					return doc.$set.password === val;
+				}
+				return false; //allow only inserts and $set
+			}
+		}
 	},
 
 	virtualFields: {
+		full_name: function(travelRequest) {
+			return travelRequest.first_name + ' ' + travelRequest.last_name;
+		},
 		depart_date: function(travelRequest) {
 			return moment(travelRequest.depart_on).format('MMM Do YYYY');
 		},
