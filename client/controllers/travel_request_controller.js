@@ -1,3 +1,0 @@
-// TravelRequestController = RouteController.extend({
-//	template:
-// });

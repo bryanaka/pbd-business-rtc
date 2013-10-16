@@ -1,4 +1,4 @@
-<template name="travel">
+<template name="travel_index">
 	<div class="row">
 		<h1 class="pageTitle">PBD Travel Requests</h1>
 	</div>
@@ -21,20 +21,16 @@
 						<td>{{email}}</td>
 						<td>{{depart_date}}</td>
 						<td>{{return_date}}</td>
+						<td>{{status}}</td>
 						<td>
-							<a href="{{urlFor 'show_travel'}}" class="btn btn-primary">
+							<a href="{{urlFor 'show_travel'}}" class="action--travel btn btn-primary">
 								<i class="glyphicon glyphicon-eye-open"></i> View
 							</a>
-							{{#autoForm schema=TravelRequestsCollection doc=this}}
-								<button type="submit" class="btn btn-danger remove">
-									<i class="glyphicon glyphicon-remove-circle"></i> Delete
-								</button>
-							{{/autoForm}}
 						</td>
 					</tr>
 				{{else}}
 					<tr>
-						<td colspan="5">No Pending Travel Requests</td>
+						<td colspan="6">No Pending Travel Requests</td>
 					</tr>
 				{{/each}}
 			</tbody>

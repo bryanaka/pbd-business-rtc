@@ -1,80 +1,82 @@
-TravelRequests = new Meteor.Collection2('travel_requests', {
+Schema = {};
+Schema.TravelRequests = new Meteor.Collection2('travel_requests', {
 	schema: {
 		first_name: {
 			type: String,
-			label: "First Name",
+			label: 'First Name',
 			max: 50
 		},
 		last_name: {
 			type: String,
-			label: "Last Name",
+			label: 'Last Name',
 			max: 50
 		},
 		email: {
 			type: String,
-			label: "Email",
+			label: 'Email',
 			max: 50
 		},
 		requestor_email: {
 			type: String,
-			label: "Requestor Email",
+			label: 'Requestor Email',
 			max: 50
 		},
 		pid: {
 			type: String,
-			label: "Project ID",
+			label: 'Project ID',
 			min: 3
 		},
 		phone: {
 			type: String,
-			label: "Phone",
+			label: 'Phone',
 			max: 15
 		},
 		depart_on: {
 			type: Date,
-			label: "Departure Date"
+			label: 'Departure Date'
 		},
 		return_on: {
 			type: Date,
-			label: "Return Date"
+			label: 'Return Date'
 		},
 		city: {
 			type: String,
-			label: "City",
+			label: 'City',
 			max: 50
 		},
 		state: {
 			type: String,
-			label: "State",
+			label: 'State',
 			max: 20
 		},
 		personal_days: {
 			type: Number,
-			label: "Personal Days",
+			label: 'Personal Days',
 			optional: true
 		},
 		estimated_airfare: {
 			type: Number,
-			label: "Estimated Airfare Cost"
+			label: 'Estimated Airfare Cost'
 		},
 		estimated_cost: {
 			type: Number,
-			label: "Estimated Other Costs"
+			label: 'Estimated Other Costs'
 		},
 		justification: {
 			type: String,
-			label: "Justification",
+			label: 'Justification',
 			max: 500
 		},
 		status: {
-			type: String,
-			label: "Request Status",
+			type:  String,
+			label: 'Request Status',
 			valueIsAllowed: function (val, doc, op) {
 				if (!op) { //insert
-					return doc.password === val;
+					doc.status = 'pending';
+					return true;
 				}
-				if (op === "$set") { //update
-					return doc.$set.password === val;
+				if (op === '$set') { //update
+					return ( 0 > $.inArray(doc.$set.status, ['pending', 'processing', 'complete']) );
 				}
 				return false; //allow only inserts and $set
 			}

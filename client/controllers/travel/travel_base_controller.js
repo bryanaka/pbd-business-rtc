@@ -1,0 +1,3 @@
+window.TravelBaseController = RouteController.extend({
+	
+});

@@ -1,3 +1,4 @@
+/* jshint camelcase: false, strict: false, undef: false, indent: 2 */
 Router.configure({
   layout: 'layout',
   //notFoundTemplate: 'notFound',
@@ -15,16 +16,15 @@ Router.configure({
 Router.map(function() {
 
   this.route('home', {
-  path: '/',
+    path: '/',
     template: 'travel',
     renderTemplates: {
       'travel_nav': {to: 'topNav'}
     }
   });
 
-  this.route('travel', {
+  this.route('travel_index', {
     path: '/travel',
-    template: 'travel',
     renderTemplates: {
       'travel_nav': {to: 'topNav'}
     }
@@ -32,7 +32,6 @@ Router.map(function() {
 
   this.route('new_travel', {
     path: '/travel/new',
-    template: 'new_travel',
     renderTemplates: {
       'travel_nav': {to: 'topNav'}
     }
@@ -40,8 +39,13 @@ Router.map(function() {
 
   this.route('show_travel', {
     path: '/travel/:_id',
-    data: function() { return TravelRequests.findOne(this.params._id); },
-    template: 'show_travel',
+    renderTemplates: {
+      'travel_nav': {to: 'topNav'}
+    }
+  });
+
+  this.route('edit_travel', {
+    path: '/travel/:_id/edit',
     renderTemplates: {
       'travel_nav': {to: 'topNav'}
     }

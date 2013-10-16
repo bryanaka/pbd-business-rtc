@@ -1,0 +1,3 @@
+window.NewTravelController = RouteController.extend({
+
+});
