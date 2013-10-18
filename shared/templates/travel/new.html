@@ -6,60 +6,102 @@
 				<div class="form-group col-sm-6">
 					{{afFieldLabel "first_name"}}
 					{{afFieldInput "first_name"}}
+					{{#if afFieldIsInvalid "first_name"}}
+						<span class="help-block">{{afFieldMessage "first_name"}}</span>
+					{{/if}}
 				</div>
 				<div class="form-group col-sm-6">
 					{{afFieldLabel "last_name"}}
 					{{afFieldInput "last_name"}}
+					{{#if afFieldIsInvalid "last_name"}}
+						<span class="help-block">{{afFieldMessage "last_name"}}</span>
+					{{/if}}
 				</div>
 	
 				<div class="form-group col-sm-6">
 					{{afFieldLabel "email"}}
 					{{afFieldInput "email"}}
+					{{#if afFieldIsInvalid "email"}}
+						<span class="help-block">{{afFieldMessage "email"}}</span>
+					{{/if}}
 				</div>
 				<div class="form-group col-sm-6">
 					{{afFieldLabel "requestor_email"}}
 					{{afFieldInput "requestor_email"}}
+					{{#if afFieldIsInvalid "requestor_email"}}
+						<span class="help-block">{{afFieldMessage "requestor_email"}}</span>
+					{{/if}}
 				</div>
 	
 				<div class="form-group col-sm-6">
 					{{afFieldLabel "pid"}}
 					{{afFieldInput "pid"}}
+					{{#if afFieldIsInvalid "pid"}}
+						<span class="help-block">{{afFieldMessage "pid"}}</span>
+					{{/if}}
 				</div>
 				<div class="form-group col-sm-6">
 					{{afFieldLabel "phone"}}
 					{{afFieldInput "phone"}}
+					{{#if afFieldIsInvalid "phone"}}
+						<span class="help-block">{{afFieldMessage "phone"}}</span>
+					{{/if}}
 				</div>
 				<div class="form-group col-sm-6">
 					{{afFieldLabel "depart_on"}}
 					{{afFieldInput "depart_on"}}
+					{{#if afFieldIsInvalid "depart_on"}}
+						<span class="help-block">{{afFieldMessage "depart_on"}}</span>
+					{{/if}}
 				</div>
 				<div class="form-group col-sm-6">
 					{{afFieldLabel "return_on"}}
 					{{afFieldInput "return_on"}}
+					{{#if afFieldIsInvalid "return_on"}}
+						<span class="help-block">{{afFieldMessage "return_on"}}</span>
+					{{/if}}
 				</div>
 				<div class="form-group col-sm-4">
 					{{afFieldLabel "city"}}
 					{{afFieldInput "city"}}
+					{{#if afFieldIsInvalid "city"}}
+						<span class="help-block">{{afFieldMessage "city"}}</span>
+					{{/if}}
 				</div>
 				<div class="form-group col-sm-4">
 					{{afFieldLabel "state"}}
 					{{afFieldInput "state"}}
+					{{#if afFieldIsInvalid "state"}}
+						<span class="help-block">{{afFieldMessage "state"}}</span>
+					{{/if}}
 				</div>
 				<div class="form-group col-sm-4">
 					{{afFieldLabel "personal_days"}}
 					{{afFieldInput "personal_days"}}
+					{{#if afFieldIsInvalid "personal_days"}}
+						<span class="help-block">{{afFieldMessage "personal_days"}}</span>
+					{{/if}}
 				</div>
 				<div class="form-group col-sm-6">
 					{{afFieldLabel "estimated_airfare"}}
 					{{afFieldInput "estimated_airfare"}}
+					{{#if afFieldIsInvalid "estimated_airfare"}}
+						<span class="help-block">{{afFieldMessage "estimated_airfare"}}</span>
+					{{/if}}
 				</div>
 				<div class="form-group col-sm-6">
 					{{afFieldLabel "estimated_cost"}}
 					{{afFieldInput "estimated_cost"}}
+					{{#if afFieldIsInvalid "estimated_cost"}}
+						<span class="help-block">{{afFieldMessage "estimated_cost"}}</span>
+					{{/if}}
 				</div>
 				<div class="form-group col-xs-11">
 					{{afFieldLabel "justification"}}
 					{{afFieldInput "justification" rows=5}}
+					{{#if afFieldIsInvalid "justification"}}
+						<span class="help-block">{{afFieldMessage "justification"}}</span>
+					{{/if}}
 				</div>
 				<div class="form-group col-xs-11">
 					<button type="submit" class="btn btn-primary insert">Submit Request</button>

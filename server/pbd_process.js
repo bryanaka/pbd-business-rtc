@@ -10,7 +10,3 @@ Accounts.onCreateUser(function(options, user) {
   console.log('User email is ' + user.profile.email);
   return user;
 });
-	
-// Meteor.Publish('TravelRequests', function(){
-//	return Posts.find({}); // publish the posts collection
-// });
