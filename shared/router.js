@@ -1,4 +1,3 @@
-/* jshint camelcase: false, strict: false, undef: false, indent: 2 */
 Router.configure({
   layout: 'layout',
   notFoundTemplate: '404',
@@ -11,9 +10,8 @@ Router.map(function() {
   this.route('home', {
     path: '/',
     template: 'travel_index',
-    renderTemplates: {
-      'travel_nav': {to:'topNav'}
-    }
+    controller: TravelController,
+    action: 'index'
   });
 
   this.route('travel_index', {
