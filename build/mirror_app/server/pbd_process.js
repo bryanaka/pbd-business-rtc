@@ -1,0 +1,6 @@
+if (typeof __coverage__ === 'undefined') { __coverage__ = {}; }
+if (!__coverage__['/Users/bmrobles/github/pbd_process/app/server/pbd_process.js']) {
+   __coverage__['/Users/bmrobles/github/pbd_process/app/server/pbd_process.js'] = {"path":"/Users/bmrobles/github/pbd_process/app/server/pbd_process.js","s":{"1":0,"2":0,"3":0,"4":0,"5":0},"b":{},"f":{"1":0},"fnMap":{"1":{"name":"(anonymous_1)","line":1,"loc":{"start":{"line":1,"column":22},"end":{"line":1,"column":46}}}},"statementMap":{"1":{"start":{"line":1,"column":0},"end":{"line":6,"column":3}},"2":{"start":{"line":2,"column":2},"end":{"line":2,"column":38}},"3":{"start":{"line":3,"column":2},"end":{"line":3,"column":20}},"4":{"start":{"line":4,"column":2},"end":{"line":4,"column":51}},"5":{"start":{"line":5,"column":2},"end":{"line":5,"column":14}}},"branchMap":{}};
+}
+var __cov_nBXMEiZMaathUEkTUWE6Qw = __coverage__['/Users/bmrobles/github/pbd_process/app/server/pbd_process.js'];
+__cov_nBXMEiZMaathUEkTUWE6Qw.s['1']++;Accounts.onCreateUser(function(options,user){__cov_nBXMEiZMaathUEkTUWE6Qw.f['1']++;__cov_nBXMEiZMaathUEkTUWE6Qw.s['2']++;console.log('Created User: ',user);__cov_nBXMEiZMaathUEkTUWE6Qw.s['3']++;user.profile={};__cov_nBXMEiZMaathUEkTUWE6Qw.s['4']++;user.profile.email=user.services.persona.email;__cov_nBXMEiZMaathUEkTUWE6Qw.s['5']++;return user;});

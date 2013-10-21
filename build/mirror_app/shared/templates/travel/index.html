@@ -1,0 +1,39 @@
+<template name="travel_index">
+	<div class="row">
+		<h1 class="pageTitle">PBD Travel Requests</h1>
+	</div>
+	<div class="row">
+		<table class="table table-striped table-hover col-xs-12">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Depart Date</th>
+					<th>Return Date</th>
+					<th>Status</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each travel_requests}}
+					<tr>
+						<td>{{last_name}}, {{first_name}}</td>
+						<td>{{email}}</td>
+						<td>{{depart_date}}</td>
+						<td>{{return_date}}</td>
+						<td>{{status}}</td>
+						<td>
+							<a href="{{urlFor 'show_travel'}}" class="action--travel btn btn-primary">
+								<i class="glyphicon glyphicon-eye-open"></i> View
+							</a>
+						</td>
+					</tr>
+				{{else}}
+					<tr>
+						<td colspan="6">No Pending Travel Requests</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+</template>

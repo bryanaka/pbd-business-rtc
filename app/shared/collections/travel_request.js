@@ -103,7 +103,24 @@ TravelRequests = new Meteor.Collection2('travel_requests', {
     },
     lodging_website: {
       type: String,
+      regEx: SchemaRegEx.Url,
       label: 'Lodging Website',
+      optional: true
+    },
+    conf_name: {
+      type: String,
+      label: 'Conference Name',
+      optional: true
+    },
+    conf_role: {
+      type: String,
+      label: 'Conference Role',
+      optional: true
+    },
+    conf_website: {
+      type: String,
+      regEx: SchemaRegEx.Url,
+      label: 'Confernce Website',
       optional: true
     },
     status: {
