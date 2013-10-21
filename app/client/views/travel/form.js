@@ -8,5 +8,13 @@ Template.travelForm.events({
     } else {
       $conf_vals.slideUp(600);
     }
+  },
+  'click .js-travelType': function(event) {
+  	console.log('log it');
+    if (event.target.value === 'Foreign') {
+      $('#foreign_fields').slideDown(600);
+    } else {
+      $('#foreign_fields').slideUp(600);
+    }
   }
 });

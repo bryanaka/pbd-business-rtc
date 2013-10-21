@@ -35,7 +35,8 @@ TravelRequests = new Meteor.Collection2('travel_requests', {
     country: {
       type: String,
       label: 'Country',
-      max: 50
+      max: 50,
+      optional: true
     },
     city: {
       type: String,
@@ -45,7 +46,7 @@ TravelRequests = new Meteor.Collection2('travel_requests', {
     },
     state: {
       type: String,
-      label: 'State',
+      label: 'State/Region',
       max: 20
     },
     personal_days: {
@@ -147,7 +148,8 @@ TravelRequests = new Meteor.Collection2('travel_requests', {
     },
     completed_at: {
       type: Date,
-      label: 'Completed At'
+      label: 'Completed At',
+      optional: true
     }
   },
 
@@ -201,13 +203,15 @@ TravelRequests.callbacks({
     if (error) {
       console.log("Insert Error:", error);
     } else {
-      Router.go('show_travel', { _id: result.data._doc._id });
+      console.log(result);
+      Router.go('show_travel', { _id: result });
     }
   },
   update: function(error, result) {
     if (error) {
       console.log("Update Error:", error);
     } else {
+      console.log(result);
       Router.go('show_travel', { _id: result.data._doc._id });
     }
   },

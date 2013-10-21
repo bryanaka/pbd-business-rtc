@@ -58,6 +58,15 @@ html, body, .siteWrapper, .mainContent, .mainNav {
 	padding: 15px;
 }
 
+.form-submit {
+	padding-top: 16px;
+	padding-bottom: 24px;
+}
+
+#conference_fields, #foreign_fields {
+	display: none;
+}
+
 @media screen and (max-width: 585px) {
 	.mainNav {
 		width: 100%;
