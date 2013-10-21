@@ -2,69 +2,7 @@
 	<div class="row">
 		<h2 class="col-xs-12 pageTitle">New Travel Request</h2>
 		{{#autoForm schema=TravelRequestsCollection doc=this id="insertTravelRequest" class="col-xs-12"}}
-			<div class="row">
-				<div class="form-group col-sm-6">
-					{{afFieldLabel "first_name"}}
-					{{afFieldInput "first_name"}}
-				</div>
-				<div class="form-group col-sm-6">
-					{{afFieldLabel "last_name"}}
-					{{afFieldInput "last_name"}}
-				</div>
-	
-				<div class="form-group col-sm-6">
-					{{afFieldLabel "email"}}
-					{{afFieldInput "email"}}
-				</div>
-				<div class="form-group col-sm-6">
-					{{afFieldLabel "requestor_email"}}
-					{{afFieldInput "requestor_email"}}
-				</div>
-	
-				<div class="form-group col-sm-6">
-					{{afFieldLabel "pid"}}
-					{{afFieldInput "pid"}}
-				</div>
-				<div class="form-group col-sm-6">
-					{{afFieldLabel "phone"}}
-					{{afFieldInput "phone"}}
-				</div>
-				<div class="form-group col-sm-6">
-					{{afFieldLabel "depart_on"}}
-					{{afFieldInput "depart_on"}}
-				</div>
-				<div class="form-group col-sm-6">
-					{{afFieldLabel "return_on"}}
-					{{afFieldInput "return_on"}}
-				</div>
-				<div class="form-group col-sm-4">
-					{{afFieldLabel "city"}}
-					{{afFieldInput "city"}}
-				</div>
-				<div class="form-group col-sm-4">
-					{{afFieldLabel "state"}}
-					{{afFieldInput "state"}}
-				</div>
-				<div class="form-group col-sm-4">
-					{{afFieldLabel "personal_days"}}
-					{{afFieldInput "personal_days"}}
-				</div>
-				<div class="form-group col-sm-6">
-					{{afFieldLabel "estimated_airfare"}}
-					{{afFieldInput "estimated_airfare"}}
-				</div>
-				<div class="form-group col-sm-6">
-					{{afFieldLabel "estimated_cost"}}
-					{{afFieldInput "estimated_cost"}}
-				</div>
-				<div class="form-group col-xs-11">
-					{{afFieldLabel "justification"}}
-					{{afFieldInput "justification" rows=5}}
-				</div>
-				<div class="form-group col-xs-11">
-					<button type="submit" class="btn btn-primary update">Submit Request</button>
-				</div>
-			</div>
+			{{> travelForm}}
 		{{/autoForm}}
 	</div>
 	

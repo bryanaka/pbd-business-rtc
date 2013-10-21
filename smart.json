@@ -5,6 +5,7 @@
     "iron-router": {},
     "collection2": {},
     "autoform": {},
-    "moment": {}
+    "moment": {},
+    "roles": {}
   }
 }

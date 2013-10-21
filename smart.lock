@@ -7,7 +7,8 @@
       "iron-router": {},
       "collection2": {},
       "autoform": {},
-      "moment": {}
+      "moment": {},
+      "roles": {}
     },
     "packages": {
       "accounts-persona": {
@@ -39,6 +40,11 @@
         "git": "https://github.com/acreeger/meteor-moment.git",
         "tag": "v2.2.1",
         "commit": "9ee12e714afe56b189f53076447b7b54f3012065"
+      },
+      "roles": {
+        "git": "https://github.com/alanning/meteor-roles.git",
+        "tag": "v1.0.6",
+        "commit": "f81cbf7c765a4ed7e16a580c288db6f10a90856b"
       },
       "simple-schema": {
         "git": "https://github.com/aldeed/meteor-simple-schema.git",

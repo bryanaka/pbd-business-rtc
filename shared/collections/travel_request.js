@@ -2,22 +2,24 @@ TravelRequests = new Meteor.Collection2('travel_requests', {
   schema: {
     first_name: {
       type: String,
-      label: 'First Name',
+      label: 'Traveler\'s First Name',
       max: 50
     },
     last_name: {
       type: String,
-      label: 'Last Name',
+      label: 'Traveler\'s Last Name',
       max: 50
     },
     email: {
       type: String,
-      label: 'Email',
+      label: 'Traveler\'s Email',
+      regEx: SchemaRegEx.Email,
       max: 50
     },
     requestor_email: {
       type: String,
       label: 'Requestor Email',
+      regEx: SchemaRegEx.Email,
       max: 50
     },
     pid: {
@@ -30,18 +32,16 @@ TravelRequests = new Meteor.Collection2('travel_requests', {
       label: 'Phone',
       max: 15
     },
-    depart_on: {
-      type: Date,
-      label: 'Departure Date'
-    },
-    return_on: {
-      type: Date,
-      label: 'Return Date'
+    country: {
+      type: String,
+      label: 'Country',
+      max: 50
     },
     city: {
       type: String,
       label: 'City',
-      max: 50
+      max: 50,
+      optional: true
     },
     state: {
       type: String,
@@ -66,11 +66,71 @@ TravelRequests = new Meteor.Collection2('travel_requests', {
       label: 'Justification',
       max: 500
     },
+    travel_type: {
+      type: String,
+      label: 'Travel Type',
+      optional: true
+    },
+    host_name: {
+      type: String,
+      label: 'Host Name',
+      optional: true
+    },
+    host_contact: {
+      type: String,
+      label: 'Host Contact Info',
+      optional: true
+    },
+    host_affiliation: {
+      type: String,
+      label: 'Hosts\' Affiliation',
+      optional: true
+    },
+    lodging_name: {
+      type: String,
+      label: 'Lodging Name',
+      optional: true
+    },
+    lodging_address: {
+      type: String,
+      label: 'Lodging Address',
+      optional: true
+    },
+    lodging_phone: {
+      type: String,
+      label: 'Lodging Phone',
+      optional: true
+    },
+    lodging_website: {
+      type: String,
+      label: 'Lodging Website',
+      optional: true
+    },
     status: {
       type:  String,
       label: 'Request Status',
       optional: true,
       allowedValues: ['pending', 'processing', 'requested', 'recieved', 'complete']
+    },
+    depart_on: {
+      type: Date,
+      label: 'Depart On'
+    },
+    return_on: {
+      type: Date,
+      label: 'Return On'
+    },
+    created_at: {
+      type: Date,
+      label: 'Created At'
+    },
+    updated_at: {
+      type: Date,
+      label: 'Updated At'
+    },
+    completed_at: {
+      type: Date,
+      label: 'Completed At'
     }
   },
 
@@ -89,6 +149,35 @@ TravelRequests = new Meteor.Collection2('travel_requests', {
     }
   }
 });
+
+var defaults = {
+  country: 'United States',
+  status:  'pending' 
+};
+
+var useTimestamps = function useTimestamps(doc, inserting) {
+  var changeDoc = doc;
+  if (inserting !== true ) { changeDoc = doc.$set; }
+  if(typeof changeDoc.created_at === 'undefined') { changeDoc.created_at = new Date(); }
+  changeDoc.updated_at = new Date();
+};
+
+var setRequestStatus = function setRequestStatus(doc, inserting) {
+  var changeDoc = doc;
+  if (inserting !== true ) { changeDoc = doc.$set; }
+  if (typeof changeDoc.status === 'undefined') { changeDoc.status = 'pending'; }
+
+};
+
+TravelRequests.beforeInsert = function(doc) {
+  useTimestamps(doc, true);
+  return doc;
+};
+
+TravelRequests.beforeUpdate = function(docId, modifier){
+  useTimestamps(modifier);
+  return modifier;
+};
 
 TravelRequests.callbacks({
   insert: function(error, result) {
