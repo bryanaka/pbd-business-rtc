@@ -203,7 +203,7 @@ TravelRequests.callbacks({
     if (error) {
       console.log("Insert Error:", error);
     } else {
-      console.log(result);
+      console.log('inserted: ', result);
       Router.go('show_travel', { _id: result });
     }
   },
@@ -211,7 +211,7 @@ TravelRequests.callbacks({
     if (error) {
       console.log("Update Error:", error);
     } else {
-      console.log(result);
+      console.log('updated:', result);
       Router.go('show_travel', { _id: result.data._doc._id });
     }
   },

@@ -1,8 +1,15 @@
 <template name="edit_travel">
 	<div class="row">
-		<h2 class="col-xs-12 pageTitle">New Travel Request</h2>
+		<h2 class="col-xs-12 pageTitle">Edit Travel Request</h2>
 		{{#autoForm schema=TravelRequestsCollection doc=this id="insertTravelRequest" class="col-xs-12"}}
 			{{> travelForm}}
+		<div class="row">
+			<div class="form-group form-submit col-xs-11">
+				<button type="submit" class="btn btn-primary update">
+					Update Request
+				</button>
+			</div>
+		</div>
 		{{/autoForm}}
 	</div>
 	
