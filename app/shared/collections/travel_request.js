@@ -128,7 +128,7 @@ TravelRequests = new Meteor.Collection2('travel_requests', {
       type:  String,
       label: 'Request Status',
       optional: true,
-      allowedValues: ['pending', 'processing', 'requested', 'recieved', 'complete']
+      allowedValues: ['pending', 'received', 'processed', 'approved', 'complete']
     },
     depart_on: {
       type: Date,
@@ -163,8 +163,10 @@ TravelRequests = new Meteor.Collection2('travel_requests', {
     return_date: function(travelRequest) {
       return moment(travelRequest.return_on).format('MMM Do YYYY');
     },
-    computed_status: function(travelRequest) {
-      return 'pending';
+    status_level: function(travelRequest) {
+      var status_map = ['pending', 'received', 'processed', 'approved', 'complete'];
+      var arr_index = _.indexOf(status_map, travelRequest.status);
+      return arr_index + 1;
     }
   }
 });
@@ -195,6 +197,7 @@ TravelRequests.beforeInsert = function(doc) {
 
 TravelRequests.beforeUpdate = function(docId, modifier){
   useTimestamps(modifier);
+  setRequestStatus(modifier);
   return modifier;
 };
 

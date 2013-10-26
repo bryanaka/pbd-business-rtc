@@ -13,15 +13,79 @@
 		<h1 class="col-lg-12">Travel Request for <a href="mailto:{{email}}">{{full_name}}</a></h1>
 		<h2 class="col-lg-12">Going to {{city}}, {{state}}</h2>
 	</div>
-	<div class="row">
-		<article class="col-xs-6 travel__date">
-			Departing on
-			<h4>{{depart_date}}</h4>
-		</article>
-		<article class="col-xs-6 travel__date">
-			Returning on
-			<h4>{{return_date}}</h4>
-		</article>
+	<div class="progress-bar-top row">
+		<div class="progress__top">
+			<div class="progress__top__text">
+				Pending
+			</div>
+		</div><!--
+	 --><div class="progress__top">
+			<div class="progress__top__text">
+				Recieved
+			</div>
+		</div><!--
+	 --><div class="progress__top">
+			<div class="progress__top__text">
+				Processed
+			</div>
+		</div><!--
+	 --><div class="progress__top">
+			<div class="progress__top__text">
+				Approved
+			</div>
+		</div><!--
+	 --><div class="progress__top">
+			<div class="progress__top__text">
+				Complete
+			</div>
+		</div>
+	</div>
+	<div class="progress-bar-container">
+		<span class="hidden" id="progress-phase">{{status_level}}</span>
+		<div class="progress-bar--status">
+    		<div class="progress-part-1 progress">
+    		  <div class="progress-text">1</div>
+    		</div><!--
+    		--><div class="progress-part-2 progress">
+    			<div class="progress-text">2</div>
+    		</div><!--
+    		--><div class="progress-part-3 progress">
+    			<div class="progress-text">3</div>
+    		</div><!--
+    		--><div class="progress-part-4 progress">
+    			<div class="progress-text">4</div>
+    		</div><!--
+    		--><div class="progress-part-5 progress">
+    			<div class="progress-text">5</div>
+    		</div><!--
+	 --></div>
+	</div>
+	<div class="row travel-details">
+		<h3 class="col-xs-12 center">Dates</h3>
+		<div class="col-xs-6 center">
+			<article class="travel__date">
+				<div class="travel__date__body">
+					Departing on
+					<h4>{{depart_date}}</h4>
+				</div>
+			</article>
+		</div>
+		<div class="col-xs-6 center">
+			<article class="travel__date">
+				<div class="travel__date__body">
+					Returning on
+					<h4>{{return_date}}</h4>
+				</div>
+			</article>
+		</div>
+		<div class="col-sm-6 col-xs-12">
+			Full Name:{{full_name}}<br>
+			Email: <a href="mailto:{{email}}">{{email}}</a><br>
+			Requestor Email: <a href="mailto:{{requestor_email}}">{{requestor_email}}</a><br>
+			Project ID: {{pid}}<br>
+			Phone Number: {{phone}}<br>
+			
+		</div>
 	</div>
 	
 </template>
