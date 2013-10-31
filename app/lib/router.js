@@ -14,16 +14,16 @@ Router.map(function() {
     action: 'index'
   });
 
-  this.route('travel_index', {
-    path: '/travel',
-    controller: 'TravelController',
-    action: 'index'
-  });
-
   this.route('new_travel', {
     path: '/travel/new',
     controller: 'TravelController',
     action: 'new'
+  });
+
+  this.route('edit_travel', {
+    path: '/travel/:_id/edit',
+    controller: 'TravelController',
+    action: 'edit'
   });
 
   this.route('show_travel', {
@@ -32,10 +32,10 @@ Router.map(function() {
     action: 'show'
   });
 
-  this.route('edit_travel', {
-    path: '/travel/:_id/edit',
+  this.route('travel_index', {
+    path: '/travel',
     controller: 'TravelController',
-    action: 'edit'
+    action: 'index'
   });
 
 });

@@ -20,3 +20,9 @@ Template.show_travel.rendered = function() {
   setStatus(status_level);
 
 };
+
+// Template.show_travel.helpers({
+//   travelRequest: function() {
+//     return TravelRequests.findOne({_id: this.params._id});
+//   }
+// });
