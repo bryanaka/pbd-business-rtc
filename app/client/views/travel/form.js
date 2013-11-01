@@ -10,21 +10,22 @@ Template.travelForm.events({
     }
   },
   'click input[name=travel_type]': function(event) {
-    console.log('log it');
+    var $country = $('input[name=country]');
     if (event.target.value === 'Foreign') {
       $('#foreign_fields').slideDown(600);
-      $('input[name=country]').removeAttr('disabled');
+      $country.val('').removeAttr('disabled');
     } else {
       $('#foreign_fields').slideUp(600);
-      $('input[name=country]').val('United States').attr('disabled', 'disabled');
+      $country.val('United States').attr('disabled', 'disabled');
     }
   }
 });
 
 Template.travelForm.rendered = function() {
-  if( $('input[name=travel_type]:checked').val() === 'Domestic' ) {
+  var $travel_type = $('input[name=travel_type]:checked').val();
+  if( $travel_type === 'Domestic' ) {
     $('input[name=country]').val('United States').attr('disabled', 'disabled');
-  } else {
+  } else if($travel_type === 'Foriegn') {
     $('#foreign_fields').show();
   }
 };

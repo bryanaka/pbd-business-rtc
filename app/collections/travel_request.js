@@ -207,7 +207,7 @@ TravelRequests.callbacks({
       console.log("Insert Error:", error);
     } else {
       console.log('inserted: ', result);
-      Router.go('show_travel', { _id: result });
+      Router.go('showTravel', { _id: result });
     }
   },
   update: function(error, result) {
@@ -215,14 +215,14 @@ TravelRequests.callbacks({
       console.log("Update Error:", error);
     } else {
       console.log('updated:', result);
-      Router.go('show_travel', { _id: result.data._doc._id });
+      Router.go('showTravel', { _id: result.data._doc._id });
     }
   },
   remove: function(error) {
     if (error) {
       console.log("Remove Error:", error);
     } else {
-      Router.go('travel_index');
+      Router.go('travelIndex');
     }
   }
 });

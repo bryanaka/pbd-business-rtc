@@ -4,8 +4,17 @@ Router.configure({
   loadingTemplate: 'loading'
 });
 
+function routeResource(name) {
+  name = name.toLowerCase();
+  var upcasename = name.charAt(0).toUpperCase() + name.slice(1) ;
+  this.route(name+'Index',       {path: '/'+name});
+  this.route('new' + upcasename, {path: '/'+name+'/new'});
+  this.route('edit'+ upcasename, {path: '/'+name+'/:_id/edit'});
+  this.route('show'+ upcasename, {path: '/'+name+'/:_id'});
+}
 
 Router.map(function() {
+  var resource = routeResource.bind(this);
 
   this.route('home', {
     path: '/',
@@ -13,20 +22,6 @@ Router.map(function() {
     controller: 'IndexTravelController'
   });
 
-  this.route('newTravel', {
-    path: '/travel/new',
-  });
-
-  this.route('editTravel', {
-    path: '/travel/:_id/edit'
-  });
-
-  this.route('showTravel', {
-    path: '/travel/:_id'
-  });
-
-  this.route('travelIndex', {
-    path: '/travel',
-  });
+  resource('travel');
 
 });
