@@ -9,33 +9,24 @@ Router.map(function() {
 
   this.route('home', {
     path: '/',
-    template: 'travel_index',
-    controller: 'TravelController',
-    action: 'index'
+    template: 'travelIndex',
+    controller: 'IndexTravelController'
   });
 
-  this.route('new_travel', {
+  this.route('newTravel', {
     path: '/travel/new',
-    controller: 'TravelController',
-    action: 'new'
   });
 
-  this.route('edit_travel', {
-    path: '/travel/:_id/edit',
-    controller: 'TravelController',
-    action: 'edit'
+  this.route('editTravel', {
+    path: '/travel/:_id/edit'
   });
 
-  this.route('show_travel', {
-    path: '/travel/:_id',
-    controller: 'TravelController',
-    action: 'show'
+  this.route('showTravel', {
+    path: '/travel/:_id'
   });
 
-  this.route('travel_index', {
+  this.route('travelIndex', {
     path: '/travel',
-    controller: 'TravelController',
-    action: 'index'
   });
 
 });

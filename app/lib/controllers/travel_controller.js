@@ -1,34 +1,41 @@
 TravelController = ApplicationController.extend({
-
-  waitOn: function() {
-    var subs = this.subscriptions;
-    var id = this.params._id;
-    subs.travelRequests = Meteor.subscribe('travelRequests');
-    subs.singleTravelRequest = Meteor.subscribe('singleTravelRequest', id);
-    return _.values(subs);
+  before: function() {
+    this.subscribe('travelRequests');
   },
 
-  index: function() {
-    this.renderTravel();
-  },
-
-  new: function() {
-    this.renderTravel();
-  },
-
-  show: function() {
-    this.data = Session.get('currentTravelRequest');
-    this.renderTravel();
-  },
-
-  edit: function() {
-    this.data = TravelRequests.findOne({_id: this.params._id});
-    this.renderTravel();
-  },
-
-  renderTravel: function() {
+  action: function() {
     this.render();
     this.render('travelNav', {to: 'topNav'});
   }
 
+});
+
+TravelIndexController = TravelController.extend();
+
+NewTravelController = ApplicationController.extend();
+
+ShowTravelController = TravelController.extend({
+  before: function() {
+    this.subscribe('singleTravelRequest', this.params._id).wait();
+    ShowTravelController.__super__.before();
+  },
+
+  data: function() {
+    if(this.ready()) {
+      return TravelRequests.findOne(this.params._id);
+    }
+  }
+});
+
+EditTravelController = ApplicationController.extend({
+  before: function() {
+    this.subscribe('singleTravelRequest', this.params._id).wait();
+    ShowTravelController.__super__.before();
+  },
+
+  data: function() {
+    if(this.ready()) {
+      return TravelRequests.findOne(this.params._id);
+    }
+  }
 });

@@ -1,3 +1,5 @@
-Template.travel_index.travel_requests = function() {
-  return TravelRequests.find();
-};
+Template.travelIndex.helpers({
+  travel_requests: function() {
+    return TravelRequests.find();
+  }
+});

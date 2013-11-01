@@ -2,7 +2,7 @@ var TravelRequestsCollection = function() {
   return TravelRequests;
 };
 
-Template.travel_index.TravelRequestsCollection = TravelRequestsCollection;
-Template.new_travel.TravelRequestsCollection   = TravelRequestsCollection;
-Template.edit_travel.TravelRequestsCollection  = TravelRequestsCollection;
-Template.show_travel.TravelRequestsCollection  = TravelRequestsCollection;
+Template.travelIndex.TravelRequestsCollection = TravelRequestsCollection;
+Template.newTravel.TravelRequestsCollection   = TravelRequestsCollection;
+Template.editTravel.TravelRequestsCollection  = TravelRequestsCollection;
+Template.showTravel.TravelRequestsCollection  = TravelRequestsCollection;

@@ -16,8 +16,5 @@ Meteor.publish('travelRequests', function() {
 });
 
 Meteor.publish('singleTravelRequest', function(id) {
-  var record = TravelRequests.findOne({_id: id});
-  this.ready();
-  console.log('FOUND:',record);
-  return record;
+  return TravelRequests.find(id);
 });

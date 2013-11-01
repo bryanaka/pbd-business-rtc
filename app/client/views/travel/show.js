@@ -1,28 +1,22 @@
-Template.show_travel.rendered = function() {
+var statusInterval;
 
-  function displayCurrentStatus(level) {
-    $('.progress-part-'+level).toggleClass('is_active');
-    setTimeout(function() {
-      displayCurrentStatus(level);
-    }, 1000);
+Template.showTravel.rendered = function() {
+  var status_level = $('#progress-phase').html();
+
+  function blinkCurrentStatus() {
+    $('.progress-part-'+status_level).toggleClass('is_active');
   }
 
-  function setStatus(level) {
-    var i = level;
+  (function setStatus() {
+    var i = status_level;
     for(i; i>1; i--) {
       $('.progress-part-'+i).addClass('is_done');
     }
-    displayCurrentStatus(level);
-  }
-
-  var status_level = $('#progress-phase').html();
-
-  setStatus(status_level);
+    statusInterval = window.setInterval(blinkCurrentStatus, 1000);
+  })();
 
 };
 
-// Template.show_travel.helpers({
-//   travelRequest: function() {
-//     return TravelRequests.findOne({_id: this.params._id});
-//   }
-// });
+Template.showTravel.destroyed = function() {
+  clearInterval(statusInterval);
+};
