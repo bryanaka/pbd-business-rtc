@@ -1,0 +1,49 @@
+<template name="travelProgressBar">
+	<div class="progress-bar-top row">
+		<div class="progress__top">
+			<div class="progress__top__text">
+				Pending
+			</div>
+		</div><!--
+	 --><div class="progress__top">
+			<div class="progress__top__text">
+				Recieved
+			</div>
+		</div><!--
+	 --><div class="progress__top">
+			<div class="progress__top__text">
+				Processed
+			</div>
+		</div><!--
+	 --><div class="progress__top">
+			<div class="progress__top__text">
+				Approved
+			</div>
+		</div><!--
+	 --><div class="progress__top">
+			<div class="progress__top__text">
+				Complete
+			</div>
+		</div>
+	</div>
+	<div class="progress-bar-container">
+		<span class="hidden" id="progress-phase">{{status_level}}</span>
+		<div class="progress-bar--status">
+    		<div class="progress-part-1 progress">
+    		  <div class="progress-text">1</div>
+    		</div><!--
+    		--><div class="progress-part-2 progress">
+    			<div class="progress-text">2</div>
+    		</div><!--
+    		--><div class="progress-part-3 progress">
+    			<div class="progress-text">3</div>
+    		</div><!--
+    		--><div class="progress-part-4 progress">
+    			<div class="progress-text">4</div>
+    		</div><!--
+    		--><div class="progress-part-5 progress">
+    			<div class="progress-text">5</div>
+    		</div><!--
+	 --></div>
+	</div>
+</template>
