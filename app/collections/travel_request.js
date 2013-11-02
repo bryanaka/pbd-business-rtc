@@ -167,6 +167,9 @@ TravelRequests = new Meteor.Collection2('travel_requests', {
       var status_map = ['pending', 'received', 'processed', 'approved', 'complete'];
       var arr_index = _.indexOf(status_map, travelRequest.status);
       return arr_index + 1;
+    },
+    is_conferance: function() {
+      return '';
     }
   }
 });
@@ -183,15 +186,22 @@ var useTimestamps = function useTimestamps(doc, inserting) {
   changeDoc.updated_at = new Date();
 };
 
-var setRequestStatus = function setRequestStatus(doc, inserting) {
-  var changeDoc = doc;
-  if (inserting !== true ) { changeDoc = doc.$set; }
-  if (typeof changeDoc.status === 'undefined') { changeDoc.status = 'pending'; }
+var setRequestStatus = function setRequestStatus(doc) {
+  var statusNotSet   = (typeof doc.status      === 'undefined'),
+      updating       = (typeof doc.$set        !== 'undefined'),
+      updatingStatus = (typeof doc.$set.status !== 'undefined');
+  
+  if (statusNotSet) { doc.status = 'pending'; }
+
+  if (updating && !updatingStatus && statusNotSet) {
+    doc.$set.status = 'pending';
+  }
 
 };
 
 TravelRequests.beforeInsert = function(doc) {
   useTimestamps(doc, true);
+  setRequestStatus(doc);
   return doc;
 };
 

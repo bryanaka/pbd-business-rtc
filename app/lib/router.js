@@ -14,7 +14,6 @@ function routeResource(name) {
 }
 
 Router.map(function() {
-  var resource = routeResource.bind(this);
 
   this.route('home', {
     path: '/',
@@ -22,6 +21,6 @@ Router.map(function() {
     controller: 'IndexTravelController'
   });
 
-  resource('travel');
+  routeResource.call(this, 'travel');
 
 });
